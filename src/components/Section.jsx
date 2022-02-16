@@ -1,25 +1,48 @@
-import React from 'react';
+import React from "react";
 import "../section.css";
-import {FaChevronDown} from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
+import styled from "styled-components";
 
-function Section() {
-
+function Section({
+  title,
+  description,
+  leftBtnText,
+  rightBtnText,
+  backgroundImg,
+}) {
   return (
-    <div className='Wrap'>
-        <div className='ItemText'>
-            <h1>Model S</h1>
-            <p>Order Online for touuchless Delivery</p>
+    <Wrap bgImage={backgroundImg}>
+      <div className="ItemText">
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </div>
+      <div className="Buttons">
+        <div className="ButtonGroup">
+          <button className="BtnLeft">{leftBtnText}</button>
+          {rightBtnText &&
+          <button className="BtnRight">{rightBtnText}</button>
+          }
         </div>
-        <div className="Buttons">
-            <div className="ButtonGroup">
-                <button className="BtnLeft">Custom Order</button>
-                <button className="BtnRight">Existing Inventory</button>
-            </div>
-            <FaChevronDown className='DownArrow'/>
-        </div>
-    </div>
-  )
-
+        <FaChevronDown className="DownArrow" />
+      </div>
+    </Wrap>
+  );
 }
 
-export default Section
+export default Section;
+
+const Wrap = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: orange;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url("./images/model-s.jpg");
+  background-image: ${props => `url("/images/${props.bgImage}") `};
+`;
