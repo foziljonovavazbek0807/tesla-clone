@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 function Header() {
 
-  const [burgerStatus, setBurgerStatus] = useState(false)
+  const [burgerStatus, setBurgerStatus] = useState(false);
 
   return (
     <div className="Header">
@@ -41,6 +41,7 @@ function Header() {
 
       <BurgerNav show={burgerStatus}>
         <div className="BurgerX">
+          <b>MENU</b>
           <BiX className="BtnX" onClick={()=>setBurgerStatus(false)}/>
         </div>
         <li className="BurgerItem">
